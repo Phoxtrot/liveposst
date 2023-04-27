@@ -34,6 +34,10 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+        // Explicit routes binding
+        // Route::bind('user', function(){
+        //     return 12345;
+        // });
     }
 
     /**

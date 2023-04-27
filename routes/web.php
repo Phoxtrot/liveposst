@@ -1,6 +1,10 @@
 <?php
 
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+
+use function Termwind\render;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+if (App::environment('local')) {
+    Route::get('/play', function () {
+        return (new WelcomeMail())->render();
+    });
+
+}
