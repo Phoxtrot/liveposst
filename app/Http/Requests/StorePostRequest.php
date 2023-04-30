@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\IntegerArray;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StorePostRequest extends FormRequest
@@ -11,7 +12,7 @@ class StorePostRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,18 @@ class StorePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => ['string','required'],
+            'body' => ['string','required'],
+            'user_id' => ['array','required',
+                            new IntegerArray()
+                        ],
+        ];
+    }
+    public function messages()
+    {
+        return[
+            'body.required' => "Please enter a value for the body field",
+            'body.string' => "Please enter a valid value for the body field",
         ];
     }
 }

@@ -1,0 +1,295 @@
+name: 'Post Management'
+description: |-
+
+  Apis to manage post repositories
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/posts
+    metadata:
+      groupName: 'Post Management'
+      groupDescription: |-
+
+        Apis to manage post repositories
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display a listing of the Post resource.'
+      description: 'Get a list of all Post instances'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      pageSize:
+        name: pageSize
+        description: 'String optional. Default is 20.'
+        required: false
+        example: '10'
+        type: string
+        custom: []
+      page:
+        name: page
+        description: 'String optional. Page you want to view'
+        required: false
+        example: 12
+        type: integer
+        custom: []
+    cleanQueryParameters:
+      pageSize: '10'
+      page: 12
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":53,"title":"ad","body":[],"created_at":"2023-04-30T11:06:26.000000Z","updated_at":"2023-04-30T11:06:26.000000Z"},{"id":54,"title":"voluptates","body":[],"created_at":"2023-04-30T11:06:26.000000Z","updated_at":"2023-04-30T11:06:26.000000Z"}]}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/posts/{post_id}'
+    metadata:
+      groupName: 'Post Management'
+      groupDescription: |-
+
+        Apis to manage post repositories
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display the specified  Post resource.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      post_id:
+        name: post_id
+        description: 'The ID of the post.'
+        required: true
+        example: 11
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      post_id: 11
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":55,"title":"alias","body":[],"created_at":"2023-04-30T11:06:26.000000Z","updated_at":"2023-04-30T11:06:26.000000Z"}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/posts
+    metadata:
+      groupName: 'Post Management'
+      groupDescription: |-
+
+        Apis to manage post repositories
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store a newly created Post in storage.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: 'Title of the post'
+        required: true
+        example: totam
+        type: String
+        custom: []
+      body:
+        name: body
+        description: 'Body of the post.'
+        required: true
+        example: aut
+        type: String
+        custom: []
+      user_id:
+        name: user_id
+        description: ''
+        required: true
+        example: []
+        type: object
+        custom: []
+      user_ids:
+        name: user_ids
+        description: 'Array of users contributing to the post.'
+        required: true
+        example:
+          - quae
+        type: 'string[]'
+        custom: []
+    cleanBodyParameters:
+      title: totam
+      body: aut
+      user_id: []
+      user_ids:
+        - quae
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":56,"title":"excepturi","body":[],"created_at":"2023-04-30T11:06:26.000000Z","updated_at":"2023-04-30T11:06:26.000000Z"}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/posts/{post_id}'
+    metadata:
+      groupName: 'Post Management'
+      groupDescription: |-
+
+        Apis to manage post repositories
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update the specified Post resource in storage.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      post_id:
+        name: post_id
+        description: 'The ID of the post.'
+        required: true
+        example: 11
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      post_id: 11
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: 'Title of the post.'
+        required: false
+        example: '"A new beginning"'
+        type: String
+        custom: []
+      body:
+        name: body
+        description: 'Body of the post.'
+        required: false
+        example: vero
+        type: String
+        custom: []
+      user_ids:
+        name: user_ids
+        description: 'IDs of the users contributing to the post'
+        required: false
+        example:
+          - illo
+        type: 'string[]'
+        custom: []
+    cleanBodyParameters:
+      title: '"A new beginning"'
+      body: vero
+      user_ids:
+        - illo
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":57,"title":"deserunt","body":[],"created_at":"2023-04-30T11:06:26.000000Z","updated_at":"2023-04-30T11:06:26.000000Z"}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/posts/{post_id}'
+    metadata:
+      groupName: 'Post Management'
+      groupDescription: |-
+
+        Apis to manage post repositories
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remove the specified post resource from storage.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      post_id:
+        name: post_id
+        description: 'The ID of the post.'
+        required: true
+        example: 11
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      post_id: 11
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":58,"title":"eius","body":[],"created_at":"2023-04-30T11:06:26.000000Z","updated_at":"2023-04-30T11:06:26.000000Z"}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
