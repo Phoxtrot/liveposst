@@ -22,6 +22,11 @@ use function Termwind\render;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/reset-password/{token}',function($token){
+    return $token;
+})
+                ->middleware(['guest:'.config('fortify.guard')])
+                ->name('password.reset');
 if (App::environment('local')) {
     Route::get('/play', function () {
         $user = User::factory()->make();
@@ -31,3 +36,7 @@ if (App::environment('local')) {
     });
 
 }
+Route::get('/app',function(){
+    return view('app');
+});
+
