@@ -15,7 +15,7 @@ use App\Helpers\Route\RouteHelper;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::prefix('v1')->middleware('auth:sanctum')
+Route::prefix('v1')
 ->group(function(){
     RouteHelper::iterateFiles(__DIR__."/api/v1");
 });

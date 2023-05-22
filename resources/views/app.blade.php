@@ -25,26 +25,35 @@
                 email: "jane@doe.com",
                 password: "password"
             }).then((res)=>{
-                console.log("Response is",res);
+                console.log("Response is");
             })
         }
-        function test(){
-            axios.post('/test',{
-                email: "john@doey.com",
-                password: "password"
-            },
-            {
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-                }
-            }).then((res)=>{
-                console.log("response is",res);
-            })
+        function logout(){
+            axios.post('/logout')
+        }
+        // Get users
+        function getUsers(){
+            axios.get('/api/v1/users')
         }
         axios.get('/sanctum/csrf-cookie').then((response)=>{
                 console.log("Response is", response);
-            }).then(login())
+            })
+            .then(login())
+            .then(getUsers());
 
+            // function test(){
+        //     axios.post('/test',{
+        //         email: "john@doey.com",
+        //         password: "password"
+        //     },
+        //     {
+        //         headers: {
+        //             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+        //         }
+        //     }).then((res)=>{
+        //         console.log("response is",res);
+        //     })
+        // }
 
     </script>
 </body>

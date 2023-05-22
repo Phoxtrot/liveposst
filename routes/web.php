@@ -3,6 +3,7 @@
 use App\Mail\WelcomeMail;
 use App\Models\User;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,15 @@ Route::get('/reset-password/{token}',function($token){
                 ->middleware(['guest:'.config('fortify.guard')])
                 ->name('password.reset');
 if (App::environment('local')) {
+    // App::setLocale('yor');
+    $trans = Lang::get('auth.failed');
+    $trans = __("auth.password");
+    $trans = __("auth.throttle",['seconds' =>"mewa"]);
+    $pant = trans_choice("auth.apples",5);
+    $welcome = __("auth.welcome", ["name" =>"Same"]);
+    dump(App::getLocale());
+    dd($welcome);
+
     Route::get('/play', function () {
         $user = User::factory()->make();
         Mail::to($user)
